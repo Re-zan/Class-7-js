@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #menus ul li {
+        display: inline-block;
+        padding: 0 20px;
+        list-style-type: none;
+      }
+      #menus ul li a {
+        color: brown;
+        font-size: 20px;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        padding: 10px;
+        text-decoration: none;
+      }
+      #menus ul li:last-child a {
+        background-color: rgb(29, 119, 204);
+      }
+      #menus ul li:last-child a:hover {
+        color: rgb(19, 18, 18);
+      }
+    </style>
+  </head>
+
+  <body style="text-align: center">
+    <h1>Hi! This is Javascript practicing time.....</h1>
+
+    <!-- for loop print -->
+    <h2>For loop Practice</h2>
+    <p id="friendsnames">Here We Go</p>
+    <h2>Menus Are:</h2>
+    <p id="menus">Here We Go MEnus</p>
+
+    <!-- for in loop -->
+    <h2>For in Practice</h2>
+    <p id="deprtment">Here We Go</p>
+    <p id="members">Here We Go</p>
+
+    <script>
+      // for loop
+      const myFriendsName = ["sadia", "priya", "maru", "rahi"];
+      myFriendsName.push("taha", "siam", "afrin");
+      for (i = 0; i < myFriendsName.length; i++) {
+        console.log(myFriendsName[i]);
+      }
+
+      console.log("--------");
+
+      let items = "";
+      for (let i = 2; i < myFriendsName.length; i++) {
+        items += myFriendsName[i] + "<br>";
+        document.getElementById("friendsnames").innerHTML = items;
+      }
+
+      const menu = ["Home", "About Us", "Contact Us", "Topics"];
+      let menuitems = "<ul>";
+      for (let i = 0; i < menu.length; i++) {
+        menuitems += "<li>" + "<a href='#'>" + menu[i] + "</a>" + "</li>";
+      }
+      menuitems += "</ul>";
+      document.getElementById("menus").innerHTML = menuitems;
+
+      //for in loop
+
+      // //membership
+      let memdata = prompt("Enter your membership id");
+      let membership = ["S1", "M1", "P1", "R1", "T1", "Si1", "Ma1"];
+
+      for (let member in membership) {
+        if (membership[member] === memdata) {
+          document.getElementById("members").innerHTML = "You are our member";
+          document.getElementById("members").style.color = "blue";
+          break;
+        } else {
+          document.getElementById("members").innerHTML =
+            "Bro First of all do a membership with us then come this page";
+          document.getElementById("members").style.color = "red";
+        }
+      }
+      console.log("--------");
+
+      const departmentNames = [
+        {
+          name: "Computer",
+          established: 1978,
+          lab: 5,
+          total_students: 2000,
+          passcode: "cmt1",
+
+          work: function () {
+            return "We will do a revolution";
+          },
+        },
+        {
+          name: "civil",
+          established: 1977,
+          lab: 4,
+          total_students: 2080,
+          passcode: "civi1",
+
+          work: function () {
+            return "We will do a revolution";
+          },
+        },
+      ];
+
+      for (const depnames in departmentNames) {
+        console.log(departmentNames[depnames]);
+        document.getElementById("deprtment").innerHTML =
+          departmentNames[depnames].work();
+      }
+    </script>
+  </body>
+</html>
